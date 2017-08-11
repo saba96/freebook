@@ -9,7 +9,7 @@ class App extends Component {
         <h1>freeBook</h1>
         <div className="main">
           <div className="sub-main">
-            <button className="button">Find Book!</button>
+            <button className="button" onClick={this.props.onFindBook}>Find Book!</button>
           </div>
           <div className="sub-main">
             <button className="button">Add book!</button>
