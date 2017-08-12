@@ -1,14 +1,19 @@
 import {connect} from 'react-redux';
 import App from '../components/App';
-import {onFindBook} from '../actions/App'
+import {onFindBook, findByISBN} from '../actions/App'
 
 
 const mapStateToProps = (state) => {
-
+    return {
+        view : state.view
+    };
 };
 
-const mapDispatchToProps = () =>{
-
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onFindBook: () => dispatch(onFindBook()),
+        findByISBN: (ISBN) => dispatch(findByISBN(ISBN))
+    }
 }
 
 
