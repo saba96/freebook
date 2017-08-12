@@ -4,6 +4,12 @@ export const onFindBook = () => {
   }
 }
 
+export const onAddBook = () => {
+  return {
+    type: 'ON_ADD_BOOK'
+  }
+}
+
 export const findByISBN = (ISBN) => {
   return {
     type: 'FIND_BY_ISBN',
@@ -11,3 +17,15 @@ export const findByISBN = (ISBN) => {
   }
 }
 
+export const addBook = (newBook) => {
+  return{
+    type : 'ADD_NEW_BOOK',
+    newBook
+  }
+}
+
+export const backHome = () => {
+  return{
+    type : "BACK_HOME"
+  }
+}

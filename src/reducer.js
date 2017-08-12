@@ -45,21 +45,49 @@ const records = {
 
 const initialState = {
 	view: 'Home',
-	ISBN: null,
-	records: records
+	ISBN: "",
+	records: records,
+	bookInfo : null
 };
 
 
 const reducer = (state = initialState, action) => {
-	console.log(action);
+	console.log(state);
 	switch (action.type) {
 		case 'ON_FIND_BOOK':
 			return Object.assign({}, state,{ view: 'findBook' });
+		case 'ON_ADD_BOOK':
+			return Object.assign({}, state,{ view: 'addBook' });
 		case 'FIND_BY_ISBN':
-			return Object.assign({}, state, {ISBN: action.ISBN});
+			return findByISBN(state, action);
+		case 'ADD_NEW_BOOK':
+			return addNewBook(state, action);
+		case 'BACK_HOME' :
+			return Object.assign({}, state, {view: "Home"})
 		default:
 			return state;
 	}
 };
+
+
+const findByISBN = (state, action) => {
+	let newState = Object.assign({}, state, {ISBN : action.ISBN});
+	if(state.ISBN !== null){
+		if(newState.records.hasOwnProperty(newState.ISBN)){
+			newState.bookInfo = newState.records[newState.ISBN];
+		}
+		else{
+			newState.bookInfo = {notfound :"unfortunately we don't have this book!"};
+		}
+	}
+	return newState;
+}
+
+const addNewBook = (state, action) => {
+	let newState = Object.assign({}, state, {view : "SuccessfullAdd"});
+	newState.records[action.newBook.ISBN] = action.newBook;
+	return newState;
+}
+
 
 export default reducer;
