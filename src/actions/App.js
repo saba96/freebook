@@ -10,6 +10,11 @@ export const onAddBook = () => {
   }
 }
 
+export const aboutUs = () => {
+  return {
+    type: 'ON_ABOUT_US'
+  }
+}
 export const findByISBN = (ISBN) => {
   return {
     type: 'FIND_BY_ISBN',

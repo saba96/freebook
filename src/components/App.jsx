@@ -19,7 +19,7 @@ class App extends Component {
                 <button className="button" onClick={this.props.onAddBook}>Add book!</button>
               </div>
               <div className="sub-main">
-                <button className="button">About us</button>
+                <button className="button" onClick={this.props.aboutUs}>About us</button>
               </div>
             </div>
             <p>bulit with love by <a href="https://www.linkedin.com/in/saba-ahmadi-4a7557127/"> Saba</a></p>
@@ -65,6 +65,9 @@ class App extends Component {
                       <div>{this.props.bookInfo.notfound} </div>
                 :<div></div>
               }
+              <div className="sub-main">
+                <button className="button" onClick={this.props.backHome}>Back home</button>
+              </div>
             </div>
           </div>
         );
@@ -81,6 +84,9 @@ class App extends Component {
               <input type='text' ref={(longitude) => this.longitude = longitude} placeholder = "longitude" />
               <input type='submit' />
             </form>
+            <div className="sub-main">
+                <button className="button" onClick={this.props.backHome}>Back home</button>
+            </div>
           </div>
         );
       case ('SuccessfullAdd'):
@@ -93,12 +99,28 @@ class App extends Component {
               </div>
             </div>
           </div>
-
         )
+      case ('aboutUs'):
+        return(
+          <div className="App">
+            <h1>About us</h1>
+            <div className="main">
+              <div className="sub-main">
+                <div>This App is made to help people find freeBook</div>
+                <div> It's simply a library which get its book from people who wants to share their books.</div>
+                <div>put your book in a location and add it to library. someone else would take it and borrow it from library. after reading he/she would put it back to library in another location and would add it to library again.</div>
+                <div>freeBook for everyone! let's enjoy reading books together!</div>
+                <div> How to help us?</div>
+                <div>add new book to library!:)</div>
+                <button className="button" onClick={this.props.backHome}>Back home</button>
+              </div>
+            </div>
+          </div>
+        );
       default:
         return (
           <div className="App"> unhandled situation occured </div>
-        )
+        );
     }
   }
   handleNewISBN(event) {

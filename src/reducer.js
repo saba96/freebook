@@ -62,6 +62,8 @@ const reducer = (state = initialState, action) => {
 			return findByISBN(state, action);
 		case 'ADD_NEW_BOOK':
 			return addNewBook(state, action);
+		case 'ON_ABOUT_US':
+			return Object.assign({}, state, {view : 'aboutUs'})
 		case 'BACK_HOME' :
 			return Object.assign({}, state, {view: "Home"})
 		default:

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import App from '../components/App';
-import {onFindBook, onAddBook, findByISBN, addBook, backHome} from '../actions/App'
+import {onFindBook, onAddBook, findByISBN, addBook, backHome, aboutUs} from '../actions/App'
 
 
 const mapStateToProps = (state) => {
@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {
         onAddBook: () => dispatch(onAddBook()),
         findByISBN: (ISBN) => {dispatch(findByISBN(ISBN))},
         addBook: (newBook) => {dispatch(addBook(newBook))},
-        backHome: () => {dispatch(backHome())}
+        backHome: () => {dispatch(backHome())},
+        aboutUs: () => {dispatch(aboutUs())}
     }
 }
 
