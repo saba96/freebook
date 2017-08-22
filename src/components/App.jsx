@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Map from '../containers/Map';
 import './App.css';
-import Navigator from './Navigator';
+import Navigator from '../containers/Navigator';
 import Control from '../containers/Control';
 
 let props = { ISBN: null };

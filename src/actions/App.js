@@ -1,15 +1,3 @@
-export const onFindBook = () => {
-  return {
-    type: 'ON_FIND_BOOK'
-  }
-}
-
-export const onAddBook = () => {
-  return {
-    type: 'ON_ADD_BOOK'
-  }
-}
-
 export const aboutUs = () => {
   return {
     type: 'ON_ABOUT_US'

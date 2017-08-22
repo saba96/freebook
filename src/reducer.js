@@ -50,22 +50,18 @@ const initialState = {
 	bookInfo : null
 };
 
-
 const reducer = (state = initialState, action) => {
-	console.log(state);
 	switch (action.type) {
-		case 'ON_FIND_BOOK':
-			return Object.assign({}, state,{ view: 'find' });
-		case 'ON_ADD_BOOK':
+    case 'CHANGE_VIEW_TO_ADD':
 			return Object.assign({}, state,{ view: 'add' });
+		case 'CHANGE_VIEW_TO_FIND':
+			return Object.assign({}, state,{ view: 'find' });
 		case 'FIND_BY_ISBN':
 			return findByISBN(state, action);
 		case 'ADD_NEW_BOOK':
 			return addNewBook(state, action);
 		case 'ON_ABOUT_US':
 			return Object.assign({}, state, {view : 'aboutUs'})
-		case 'BACK_HOME' :
-			return Object.assign({}, state, {view: "Home"})
 		default:
 			return state;
 	}
@@ -91,5 +87,6 @@ const addNewBook = (state, action) => {
 	return newState;
 }
 
-
 export default reducer;
+
+
