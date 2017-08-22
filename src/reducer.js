@@ -44,7 +44,7 @@ const records = {
 }
 
 const initialState = {
-	view: 'Home',
+	view: 'find',
 	ISBN: "",
 	records: records,
 	bookInfo : null
@@ -55,9 +55,9 @@ const reducer = (state = initialState, action) => {
 	console.log(state);
 	switch (action.type) {
 		case 'ON_FIND_BOOK':
-			return Object.assign({}, state,{ view: 'findBook' });
+			return Object.assign({}, state,{ view: 'find' });
 		case 'ON_ADD_BOOK':
-			return Object.assign({}, state,{ view: 'addBook' });
+			return Object.assign({}, state,{ view: 'add' });
 		case 'FIND_BY_ISBN':
 			return findByISBN(state, action);
 		case 'ADD_NEW_BOOK':

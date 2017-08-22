@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Map from '../containers/Map';
 import './App.css';
 import Navigator from './Navigator';
-import Control from './Control';
+import Control from '../containers/Control';
 
 let props = { ISBN: null };
 
