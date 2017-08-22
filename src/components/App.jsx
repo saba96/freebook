@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Map from '../containers/Map';
 import './App.css';
 import Navigator from './Navigator';
+import Control from './Control';
 
 let props = { ISBN: null };
 
@@ -11,6 +12,7 @@ class App extends Component {
       <div className="App">
         <Navigator />
         <Map />
+        <Control />
       </div>
     );
   }
