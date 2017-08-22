@@ -17,6 +17,10 @@ class Navigator extends Component {
     this.props.onFindClick();
   }
 
+  isActive(element) {
+    return this.props.view === element ? true : false;
+  }
+
   render() {
     return (
       <div className="Navigator">
@@ -26,10 +30,16 @@ class Navigator extends Component {
           </NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="#" onClick={ this.onAddLinkClick }>add</NavLink>
+              <NavLink
+                href="#"
+                active={ this.isActive('add') }
+                onClick={ this.onAddLinkClick }>add</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#" onClick={ this.onFindLinkClick }>find</NavLink>
+              <NavLink
+                href="#"
+                active={ this.isActive('find') }
+                onClick={ this.onFindLinkClick }>find</NavLink>
             </NavItem>
           </Nav>
         </Navbar>
