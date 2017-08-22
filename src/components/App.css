@@ -2,6 +2,14 @@
 
 *{margin: 0px; padding: 0px}
 
+.App {
+  padding: 15px;
+}
+
+.Navigator {
+  margin-bottom: 15px;
+}
+
 body{
   background:#2c3e50;
   font-family: 'Open Sans', sans-serif;
