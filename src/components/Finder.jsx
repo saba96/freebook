@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+import './App.css';
+import { InputGroup, InputGroupAddon, Input, Button, CardDeck, Card, CardBlock, CardTitle } from 'reactstrap';
 
 class Finder extends Component {
 
@@ -11,14 +12,17 @@ class Finder extends Component {
 
     return this.props.foundBooks.map((item, idx) => {
       return (
-        <div key={ idx }>
-          <div>ISBN: { item.ISBN }</div>
-          <div>name: { item.name }</div>
-          <div>latitude: { item.latitude }</div>
-          <div>longitude: { item.longitude }</div>
-          <div>category: { item.category }</div>
-          =========================================================================
-        </div>
+        <Card key={ idx }
+          className="ResultCard"
+          style={ { flex: "0 0 auto" } }>
+          <CardBlock>
+            <CardTitle>{ item.name }</CardTitle>
+            <div>ISBN: { item.ISBN }</div>
+            <div>latitude: { item.latitude }</div>
+            <div>longitude: { item.longitude }</div>
+            <div>category: { item.category }</div>
+          </CardBlock>
+        </Card>
       )
     });
   }
@@ -39,7 +43,9 @@ class Finder extends Component {
         </InputGroup>
 
         <div className="Results">
-          { this.generateResults() }
+          <CardDeck>
+            { this.generateResults() }
+          </CardDeck>
         </div>
       </div>
     )
