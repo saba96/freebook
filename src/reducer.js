@@ -47,7 +47,8 @@ const initialState = {
 	view: 'find',
 	ISBN: "",
 	records: records,
-	bookInfo : null
+	bookInfo : null,
+  findFieldText: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -60,6 +61,8 @@ const reducer = (state = initialState, action) => {
 			return findByISBN(state, action);
 		case 'ADD_NEW_BOOK':
 			return addNewBook(state, action);
+    case 'SET_FIND_FIELD_TEXT':
+      return Object.assign({}, state, { findFieldText: action.text });
 		case 'ON_ABOUT_US':
 			return Object.assign({}, state, {view : 'aboutUs'})
 		default:
@@ -88,5 +91,4 @@ const addNewBook = (state, action) => {
 }
 
 export default reducer;
-
 

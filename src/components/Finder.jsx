@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
 
 class Finder extends Component {
   render() {
@@ -9,9 +9,16 @@ class Finder extends Component {
           <InputGroupAddon>ISBN</InputGroupAddon>
           <Input
             placeholder="978-0-123456-47-2"
-            onInput={ (event) => console.log(event.target.value) }
+            onInput={ this.props.onTextBoxChange }
           />
+          <Button
+            color="primary"
+          >search</Button>{' '}
         </InputGroup>
+
+        <div className="Results">
+          { this.props.findFieldText }
+        </div>
       </div>
     )
   }

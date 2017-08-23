@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Finder from './Finder';
+import Finder from '../containers/Finder';
 import Add from './Add';
 
 class Control extends Component {
