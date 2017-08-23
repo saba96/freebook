@@ -10,6 +10,10 @@
   margin-bottom: 15px;
 }
 
+.Control {
+  margin-top: 15px;
+}
+
 body{
   background:#2c3e50;
   font-family: 'Open Sans', sans-serif;
