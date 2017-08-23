@@ -58,7 +58,11 @@ const initialState = {
   records: records,
   foundBooks: null,
   bookInfo : null,
-  findFieldText: ''
+  findFieldText: '',
+  userLocation: {
+    lat: 0.0,
+    lng: 0.0
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -73,6 +77,8 @@ const reducer = (state = initialState, action) => {
 			return addNewBook(state, action);
     case 'SET_FIND_FIELD_TEXT':
       return Object.assign({}, state, { findFieldText: action.text });
+    case 'SET_USER_LOCATION':
+      return Object.assign({}, state, { userLocation: action.location });
 		case 'ON_ABOUT_US':
 			return Object.assign({}, state, {view : 'aboutUs'})
 		default:
