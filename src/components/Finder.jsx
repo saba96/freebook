@@ -7,7 +7,10 @@ class Finder extends Component {
       <div className="Find">
         <InputGroup className="ISBN">
           <InputGroupAddon>ISBN</InputGroupAddon>
-          <Input placeholder="978-0-123456-47-2"/>
+          <Input
+            placeholder="978-0-123456-47-2"
+            onInput={ (event) => console.log(event.target.value) }
+          />
         </InputGroup>
       </div>
     )

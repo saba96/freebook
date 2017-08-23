@@ -12,6 +12,8 @@
 
 .Control {
   margin-top: 15px;
+  padding: 10px;
+  background-color: lightgray;
 }
 
 body{
