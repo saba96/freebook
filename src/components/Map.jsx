@@ -24,7 +24,7 @@ const MyMap = withGoogleMap(props => {
       <Marker
         position = { props.userLocation }
         icon = {{
-          url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+          url: 'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png',
         }}
       />
       { props.markers.map((marker, idx) => (
