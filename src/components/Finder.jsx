@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
 
-class Find extends Component {
+class Finder extends Component {
   render() {
     return (
       <div className="Find">
@@ -14,4 +14,4 @@ class Find extends Component {
   }
 }
 
-export default Find;
+export default Finder;

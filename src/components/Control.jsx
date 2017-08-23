@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Find from './Find';
+import Finder from './Finder';
 import Add from './Add';
 
 class Control extends Component {
   getView = () => {
     switch(this.props.view) {
       case 'find':
-        return <Find />;
+        return <Finder />;
       case 'add':
         return <Add />;
       default:
         console.log('UNKNOWN VIEW');
-        return <Find />;
+        return <Finder />;
     }
   }
 
