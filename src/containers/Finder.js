@@ -4,7 +4,8 @@ import { setFindFieldText, onSearchButtonClick, findByISBN } from '../actions/Fi
 
 const mapStateToProps = (state) => {
   return {
-    findFieldText : state.findFieldText
+    findFieldText : state.findFieldText,
+    foundBooks: state.foundBooks
   };
 };
 

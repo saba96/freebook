@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
 
 class Finder extends Component {
+
+  generateResults = () => {
+    if(this.props.foundBooks === null)
+      return;
+    if(this.props.foundBooks.length === 0)
+      return <div>no books found :(</div>;
+
+    return this.props.foundBooks.map((item, idx) => {
+      return (
+        <div key={ idx }>
+          <div>ISBN: { item.ISBN }</div>
+          <div>name: { item.name }</div>
+          <div>latitude: { item.latitude }</div>
+          <div>longitude: { item.longitude }</div>
+          <div>category: { item.category }</div>
+          =========================================================================
+        </div>
+      )
+    });
+  }
+
   render() {
     return (
       <div className="Finder">
@@ -13,11 +34,12 @@ class Finder extends Component {
           />
           <Button
             color="primary"
+            onClick={ this.props.onSearchButtonClick }
           >search</Button>{' '}
         </InputGroup>
 
         <div className="Results">
-          { this.props.findFieldText }
+          { this.generateResults() }
         </div>
       </div>
     )
