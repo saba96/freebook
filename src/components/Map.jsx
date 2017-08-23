@@ -20,6 +20,7 @@ const MyMap = withGoogleMap(props => {
     <GoogleMap
       defaultZoom={10}
       defaultCenter={{lat: 35.6895, lng:139.69171}}
+      center={ props.userLocation }
     >
       <Marker
         position = { props.userLocation }
