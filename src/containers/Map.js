@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    markers : state.foundBooks === null ? [] : state.foundBooks,
+    markers : state.foundBooks === null ? state.records : state.foundBooks,
     userLocation: state.userLocation
   };
 }
