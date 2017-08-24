@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Finder from '../containers/Finder';
-import Adder from './Adder';
+import Adder from '../containers/Adder';
 
 class Control extends Component {
   getView = () => {

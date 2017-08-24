@@ -62,30 +62,45 @@ const initialState = {
   userLocation: {
     lat: 0.0,
     lng: 0.0
-  }
+  },
+  adderTitleFieldText: '',
+  adderISBNFieldText: '',
+  adderGenreFieldText: '',
+  adderLatFieldText: '',
+  adderLngFieldText: ''
 };
 
 const reducer = (state = initialState, action) => {
-	switch (action.type) {
+  switch (action.type) {
     case 'CHANGE_VIEW_TO_ADD':
-			return Object.assign({}, state,{ view: 'add' });
-		case 'CHANGE_VIEW_TO_FIND':
-			return Object.assign({}, state,{ view: 'find' });
-		case 'FIND_BY_ISBN':
-			return findByISBN(state, action);
-		case 'ADD_NEW_BOOK':
-			return addNewBook(state, action);
+      return Object.assign({}, state,{ view: 'add' });
+    case 'CHANGE_VIEW_TO_FIND':
+      return Object.assign({}, state,{ view: 'find' });
+    case 'FIND_BY_ISBN':
+      return findByISBN(state, action);
+    case 'ADD_NEW_BOOK':
+      return addNewBook(state, action);
     case 'SET_FIND_FIELD_TEXT':
       return Object.assign({}, state, { findFieldText: action.text });
     case 'SET_USER_LOCATION':
       return Object.assign({}, state, { userLocation: action.location });
-		case 'ON_ABOUT_US':
-			return Object.assign({}, state, {view : 'aboutUs'})
-		default:
-			return state;
-	}
+    case 'SET_ADDER_TITLE_FIELD_TEXT':
+      return Object.assign({}, state, { adderTitleFieldText: action.text });
+    case 'SET_ADDER_ISBN_FIELD_TEXT':
+      return Object.assign({}, state, { adderISBNFieldText: action.text });
+    case 'SET_ADDER_GENRE_FIELD_TEXT':
+      return Object.assign({}, state, { adderGenreFieldText: action.text });
+    case 'SET_ADDER_LAT_FIELD_TEXT':
+      return Object.assign({}, state, { adderLatFieldText: action.text });
+    case 'SET_ADDER_LNG_FIELD_TEXT':
+      return Object.assign({}, state, { adderLngFieldText: action.text });
+    case 'ON_ABOUT_US':
+      return Object.assign({}, state, { view : 'aboutUs' });
+    default:
+      console.log('UNKNOWN ACTION!');
+      return state;
+  }
 };
-
 
 const findByISBN = (state, action) => {
   let foundBooks = _.filter(state.records, (record) => {
@@ -96,9 +111,9 @@ const findByISBN = (state, action) => {
 }
 
 const addNewBook = (state, action) => {
-	let newState = Object.assign({}, state, {view : "SuccessfullAdd"});
-	newState.records[action.newBook.ISBN] = action.newBook;
-	return newState;
+  let newState = Object.assign({}, state, {view : "SuccessfullAdd"});
+  newState.records[action.newBook.ISBN] = action.newBook;
+  return newState;
 }
 
 export default reducer;
