@@ -57,7 +57,7 @@ const initialState = {
   ISBN: "",
   records: records,
   foundBooks: null,
-  bookInfo : null,
+  bookInfo: null,
   findFieldText: '',
   userLocation: {
     lat: 0.0,

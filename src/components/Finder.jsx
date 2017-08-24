@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import { InputGroup, InputGroupAddon, Input, Button, CardDeck, Card, CardBlock, CardTitle } from 'reactstrap';
+import classnames from 'classnames';
+import { Navbar, Nav, NavItem, NavLink, InputGroup, InputGroupAddon, Input, Button, CardDeck, Card, CardBlock, CardTitle } from 'reactstrap';
 
 class Finder extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      activeTab: '1'
+    };
+  }
+
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  }
 
   generateResults = () => {
     if(this.props.foundBooks === null)
@@ -30,6 +47,26 @@ class Finder extends Component {
   render() {
     return (
       <div className="Finder">
+        <Navbar color="faded" light>
+          <Nav tabs>
+            <NavItem>
+              <NavLink
+                className={classnames({ active: this.state.activeTab === '1' })}
+                onClick={() => { this.toggle('1'); }}
+              >
+                find by isbn
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                className={classnames({ active: this.state.activeTab === '2' })}
+                onClick={() => { this.toggle('2'); }}
+              >
+                find by location
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Navbar>
         <InputGroup className="ISBN">
           <InputGroupAddon>ISBN</InputGroupAddon>
           <Input
