@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Finder from '../containers/Finder';
-import Add from './Add';
+import Adder from './Adder';
 
 class Control extends Component {
   getView = () => {
@@ -8,7 +8,7 @@ class Control extends Component {
       case 'find':
         return <Finder />;
       case 'add':
-        return <Add />;
+        return <Adder />;
       default:
         console.log('UNKNOWN VIEW');
         return <Finder />;
