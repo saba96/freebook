@@ -21,7 +21,8 @@
     "react-scripts": "1.0.11",
     "react-test-renderer": "^15.6.1",
     "reactstrap": "^4.8.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "sinon": "^3.2.1"
   },
   "scripts": {
     "server": "node ./server/bin/www",
