@@ -2,6 +2,41 @@ var _ = require('lodash');
 
 const records = [
   {
+    ISBN: 123,
+    name: 'Jimmy Goes to the Store',
+    latitude: 35.691566,
+    longitude: 139.687922,
+    category: 'Drama'
+  },
+  {
+    ISBN: 123,
+    name: 'Jimmy Goes to the Store',
+    latitude: 35.691633,
+    longitude: 138.687922,
+    category: 'Drama'
+  },
+  {
+    ISBN: 123,
+    name: 'Jimmy Goes to the Store',
+    latitude: 36.691566,
+    longitude: 138.687922,
+    category: 'Drama'
+  },
+  {
+    ISBN: 123,
+    name: 'Jimmy Goes to the Store',
+    latitude: 41.691566,
+    longitude: 141.687922,
+    category: 'Drama'
+  },
+  {
+    ISBN: 123,
+    name: 'Jimmy Goes to the Store',
+    latitude: 9.691566,
+    longitude: 152.687922,
+    category: 'Drama'
+  },
+  {
     ISBN: 1,
     name: 'The Goldfinch',
     latitude: 35.691566,
