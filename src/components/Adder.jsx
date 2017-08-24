@@ -7,7 +7,7 @@ class Adder extends Component {
     event.preventDefault();
     event.stopPropagation();
 
-    console.log(this.props);
+    this.props.onSubmit();
   }
 
   render() {

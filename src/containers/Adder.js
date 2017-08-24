@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Adder from '../components/Adder';
-import { setAdderTitleFieldText, setAdderISBNFieldText, setAdderGenreFieldText, setAdderLatFieldText, setAdderLngFieldText } from '../actions/Adder';
+import { addBook, setAdderTitleFieldText, setAdderISBNFieldText, setAdderGenreFieldText, setAdderLatFieldText, setAdderLngFieldText } from '../actions/Adder';
 
 const mapStateToProps = (state) => {
   return {
@@ -28,6 +28,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onLngTextBoxChange: (event) => {
       dispatch(setAdderLngFieldText(event.target.value))
+    },
+    onSubmit: () => {
+      dispatch(addBook())
     }
   }
 };

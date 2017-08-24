@@ -111,8 +111,14 @@ const findByISBN = (state, action) => {
 }
 
 const addNewBook = (state, action) => {
-  let newState = Object.assign({}, state, {view : "SuccessfullAdd"});
-  newState.records[action.newBook.ISBN] = action.newBook;
+  let newState = Object.assign({}, state);
+  newState.records.push({
+    ISBN: state.adderISBNFieldText,
+    name: state.adderTitleFieldText,
+    category: state.adderGenreFieldText,
+    latitude: Number.parseFloat(state.adderLatFieldText),
+    longitude: Number.parseFloat(state.adderLngFieldText)
+  })
   return newState;
 }
 

@@ -33,3 +33,9 @@ export const setAdderLngFieldText = (text) => {
   }
 }
 
+export const addBook = () => {
+  return {
+    type: 'ADD_NEW_BOOK',
+  }
+}
+
