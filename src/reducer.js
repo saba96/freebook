@@ -3,7 +3,7 @@ var _ = require('lodash');
 const records = [
   {
     ISBN: 123,
-    name: 'Jimmy Goes to the Store',
+    title: 'Jimmy Goes to the Store',
     latitude: 35.691566,
     longitude: 139.687922,
     category: 'Drama',
@@ -11,7 +11,7 @@ const records = [
   },
   {
     ISBN: 123,
-    name: 'Jimmy Goes to the Store',
+    title: 'Jimmy Goes to the Store',
     latitude: 35.691633,
     longitude: 138.687922,
     category: 'Drama',
@@ -19,7 +19,7 @@ const records = [
   },
   {
     ISBN: 123,
-    name: 'Jimmy Goes to the Store',
+    title: 'Jimmy Goes to the Store',
     latitude: 36.691566,
     longitude: 138.687922,
     category: 'Drama',
@@ -27,7 +27,7 @@ const records = [
   },
   {
     ISBN: 123,
-    name: 'Jimmy Goes to the Store',
+    title: 'Jimmy Goes to the Store',
     latitude: 41.691566,
     longitude: 141.687922,
     category: 'Drama',
@@ -35,7 +35,7 @@ const records = [
   },
   {
     ISBN: 123,
-    name: 'Jimmy Goes to the Store',
+    title: 'Jimmy Goes to the Store',
     latitude: 9.691566,
     longitude: 152.687922,
     category: 'Drama',
@@ -43,7 +43,7 @@ const records = [
   },
   {
     ISBN: 1,
-    name: 'The Goldfinch',
+    title: 'The Goldfinch',
     latitude: 35.691566,
     longitude: 139.687922,
     category: 'Novel',
@@ -51,7 +51,7 @@ const records = [
   },
   {
     ISBN: 2,
-    name: 'Hamilton: The Revolution',
+    title: 'Hamilton: The Revolution',
     latitude: 35.688795,
     longitude: 139.682686,
     category: 'Art',
@@ -59,7 +59,7 @@ const records = [
   },
   {
     ISBN: 3,
-    name: 'Hue 1968',
+    title: 'Hue 1968',
     latitude: 35.701126,
     longitude: 139.709616,
     category:'History',
@@ -67,7 +67,7 @@ const records = [
   },
   {
     ISBN: 4,
-    name: 'P.S. from Paris',
+    title: 'P.S. from Paris',
     latitude: 35.697711,
     longitude: 139.661980,
     category: 'Romance',
@@ -75,7 +75,7 @@ const records = [
   },
   {
     ISBN: 5,
-    name: 'Deep Learning',
+    title: 'Deep Learning',
     latitude: 35.736829,
     longitude: 139.196777,
     category: 'Technology',
@@ -83,7 +83,7 @@ const records = [
   },
   {
     ISBN: 6,
-    name: 'Orthopedic Physical Assessment',
+    title: 'Orthopedic Physical Assessment',
     latitude: 35.531458,
     longitude: 138.911133,
     category: 'Medicine',
@@ -91,7 +91,7 @@ const records = [
   },
   {
     ISBN: 1,
-    name: 'The Goldfinch',
+    title: 'The Goldfinch',
     latitude: 36.691566,
     longitude: 139.887922,
     category: 'Novel',
@@ -191,7 +191,7 @@ const findByAuthor = (state, action) => {
 
 const findByTitle = (state, action) => {
   let foundBooks = _.filter(state.records, (record) => {
-    return record.name === state.searchTitle;
+    return record.title === state.searchTitle;
   });
   const center = {
     latitude: state.locSearchLatFieldText,
@@ -237,7 +237,7 @@ const addNewBook = (state, action) => {
   let newState = Object.assign({}, state);
   newState.records.push({
     ISBN: state.adderISBNFieldText,
-    name: state.adderTitleFieldText,
+    title: state.adderTitleFieldText,
     category: state.adderGenreFieldText,
     latitude: Number.parseFloat(state.adderLatFieldText),
     longitude: Number.parseFloat(state.adderLngFieldText)

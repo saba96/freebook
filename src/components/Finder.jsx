@@ -33,11 +33,12 @@ class Finder extends Component {
           className="ResultCard"
           style={ { flex: "0 0 auto" } }>
           <CardBlock>
-            <CardTitle>{ item.name }</CardTitle>
+            <CardTitle>{ item.title }</CardTitle>
             <div>ISBN: { item.ISBN }</div>
+            <div>author: { item.author }</div>
+            <div>category: { item.category }</div>
             <div>latitude: { item.latitude }</div>
             <div>longitude: { item.longitude }</div>
-            <div>category: { item.category }</div>
             { item.distance !== undefined ? <div>distance: { item.distance }km</div> : undefined }
           </CardBlock>
         </Card>
