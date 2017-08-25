@@ -4,8 +4,10 @@ import {
   setLocSearchLatFieldText,
   setLocationSearchLongitudeFieldText,
   setFindFieldText,
+  setRadiusFieldText,
   onSearchButtonClick,
-  findByISBN
+  findByISBN,
+  findByLocation
 } from '../actions/Finder';
 
 const mapStateToProps = (state) => {
@@ -30,7 +32,11 @@ const mapDispatchToProps = (dispatch) => {
     },
     onLongitudeTextBoxChange: (event) => {
       dispatch(setLocationSearchLongitudeFieldText(event.target.value));
-    }
+    },
+    onRadiusTextBoxChange: (event) => {
+      dispatch(setRadiusFieldText(event.target.value));
+    },
+    onLocationSearchButtonClick: () => dispatch(findByLocation())
   };
 };
 

@@ -104,13 +104,13 @@ class Finder extends Component {
                 <InputGroupAddon>Radius</InputGroupAddon>
                 <Input
                   placeholder="100"
-                  value={ this.props.radiusFieldText }
+                  defaultValue={ 100 }
                   onInput={ this.props.onRadiusTextBoxChange }
                 />
               </InputGroup>
               <Button
                 color="primary"
-                onClick={ this.props.onSearchButtonClick }
+                onClick={ this.props.onLocationSearchButtonClick }
               >search</Button>{' '}
             </InputGroup>
           </TabPane>

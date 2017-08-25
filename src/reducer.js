@@ -98,7 +98,6 @@ const initialState = {
   searchRadius: 100, // Radius is in Km
   locSearchLatFieldText: undefined,
   locationSearchLongitudeFieldText: undefined,
-  searchCenter: null,
   userLocation: {
     lat: 0.0,
     lng: 0.0
@@ -118,6 +117,8 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state,{ view: 'find' });
     case 'FIND_BY_ISBN':
       return findByISBN(state, action);
+    case 'FIND_BY_LOCATION':
+      return findByLocation(state, action);
     case 'ADD_NEW_BOOK':
       return addNewBook(state, action);
     case 'SET_FIND_FIELD_TEXT':
@@ -128,7 +129,6 @@ const reducer = (state = initialState, action) => {
         locSearchLatFieldText: state.locSearchLatFieldText === undefined ? action.location.lat : state.locSearchLatFieldText,
         locationSearchLongitudeFieldText: state.locationSearchLongitudeFieldText === undefined ? action.location.lng : state.locationSearchLongitudeFieldText
       });
-      console.log(newState);
       return newState;
     case 'SET_ADDER_TITLE_FIELD_TEXT':
       return Object.assign({}, state, { adderTitleFieldText: action.text });
@@ -144,6 +144,8 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, { locSearchLatFieldText: action.text });
     case 'SET_LOCATION_SEARCH_LONGITUDE_FIELD_TEXT':
       return Object.assign({}, state, { locationSearchLongitudeFieldText: action.text });
+    case 'SET_RADIUS_FIELD_TEXT':
+      return Object.assign({}, state, { searchRadius: action.text });
     case 'ON_ABOUT_US':
       return Object.assign({}, state, { view : 'aboutUs' });
     default:
@@ -151,6 +153,18 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const findByLocation = (state, action) => {
+  const KILOMETERS_PER_DEGREE = 111;
+  let foundBooks = _.filter(state.records, (record) => {
+    let dX = state.locSearchLatFieldText - record.latitude;
+    let dY = state.locationSearchLongitudeFieldText - record.longitude;
+    let distance = Math.sqrt(dX*dX + dY*dY);
+    return distance <= state.searchRadius;
+  });
+  let newState = Object.assign({}, state, { foundBooks });
+  return newState
+}
 
 const findByISBN = (state, action) => {
   let foundBooks = _.filter(state.records, (record) => {

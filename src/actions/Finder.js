@@ -1,3 +1,9 @@
+export const findByLocation = () => {
+  return {
+    type: 'FIND_BY_LOCATION'
+  }
+}
+
 export const setLocSearchLatFieldText = (text) => {
   return {
     type: 'SET_LOCATION_SEARCH_LATITUDE_FIELD_TEXT',
@@ -21,6 +27,13 @@ export const findByISBN = () => {
 export const setFindFieldText = (text) => {
   return {
     type: 'SET_FIND_FIELD_TEXT',
+    text
+  }
+}
+
+export const setRadiusFieldText = (text) => {
+  return {
+    type: 'SET_RADIUS_FIELD_TEXT',
     text
   }
 }
