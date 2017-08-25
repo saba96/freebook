@@ -6,84 +6,96 @@ const records = [
     name: 'Jimmy Goes to the Store',
     latitude: 35.691566,
     longitude: 139.687922,
-    category: 'Drama'
+    category: 'Drama',
+    author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     name: 'Jimmy Goes to the Store',
     latitude: 35.691633,
     longitude: 138.687922,
-    category: 'Drama'
+    category: 'Drama',
+    author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     name: 'Jimmy Goes to the Store',
     latitude: 36.691566,
     longitude: 138.687922,
-    category: 'Drama'
+    category: 'Drama',
+    author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     name: 'Jimmy Goes to the Store',
     latitude: 41.691566,
     longitude: 141.687922,
-    category: 'Drama'
+    category: 'Drama',
+    author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     name: 'Jimmy Goes to the Store',
     latitude: 9.691566,
     longitude: 152.687922,
-    category: 'Drama'
+    category: 'Drama',
+    author: 'Jimmy Chen'
   },
   {
     ISBN: 1,
     name: 'The Goldfinch',
     latitude: 35.691566,
     longitude: 139.687922,
-    category: 'Novel'
+    category: 'Novel',
+    author: 'Donna Tartt'
   },
   {
     ISBN: 2,
     name: 'Hamilton: The Revolution',
     latitude: 35.688795,
     longitude: 139.682686,
-    category: 'Art'
+    category: 'Art',
+    author: 'Jeremy McCarter'
   },
   {
     ISBN: 3,
     name: 'Hue 1968',
     latitude: 35.701126,
     longitude: 139.709616,
-    category:'History'
+    category:'History',
+    author: 'Mark Bowden'
   },
   {
     ISBN: 4,
     name: 'P.S. from Paris',
     latitude: 35.697711,
     longitude: 139.661980,
-    category: 'Romance'
+    category: 'Romance',
+    author: 'Marc Levy'
   },
   {
     ISBN: 5,
     name: 'Deep Learning',
     latitude: 35.736829,
     longitude: 139.196777,
-    category: 'Technology'
+    category: 'Technology',
+    author: 'Ian Goodfellow'
   },
   {
     ISBN: 6,
     name: 'Orthopedic Physical Assessment',
     latitude: 35.531458,
     longitude: 138.911133,
-    category: 'Medicine'
+    category: 'Medicine',
+    author: 'David J Magee'
   },
   {
     ISBN: 1,
     name: 'The Goldfinch',
     latitude: 36.691566,
     longitude: 139.887922,
-    category: 'Novel'
+    category: 'Novel',
+    author: 'Donna Tartt'
   },
 ];
 
