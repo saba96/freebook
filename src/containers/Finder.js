@@ -10,7 +10,8 @@ import {
   onSearchButtonClick, // can be deleted?
   findByISBN,
   findByLocation,
-  findByTitle
+  findByTitle,
+  findByAuthor
 } from '../actions/Finder';
 
 const mapStateToProps = (state) => {
@@ -45,7 +46,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setAuthorFieldText(event.target.value));
     },
     onLocationSearchButtonClick: () => dispatch(findByLocation()),
-    onTitleSearchButtonClick: () => dispatch(findByTitle())
+    onTitleSearchButtonClick: () => dispatch(findByTitle()),
+    onAuthorSearchButtonClick: () => dispatch(findByAuthor())
   };
 };
 

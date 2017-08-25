@@ -135,6 +135,8 @@ const reducer = (state = initialState, action) => {
       return findByLocation(state, action);
     case 'FIND_BY_TITLE':
       return findByTitle(state, action);
+    case 'FIND_BY_AUTHOR':
+      return findByAuthor(state, action);
     case 'ADD_NEW_BOOK':
       return addNewBook(state, action);
     case 'SET_FIND_FIELD_TEXT':
@@ -173,6 +175,14 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const findByAuthor = (state, action) => {
+  let foundBooks = _.filter(state.records, (record) => {
+    return record.author === state.searchAuthor;
+  });
+  let newState = Object.assign({}, state, { foundBooks });
+  return newState;
+}
 
 const findByTitle = (state, action) => {
   let foundBooks = _.filter(state.records, (record) => {

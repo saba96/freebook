@@ -24,6 +24,12 @@ export const setLocationSearchLongitudeFieldText = (text) => {
   }
 }
 
+export const findByAuthor = () => {
+  return {
+    type: 'FIND_BY_AUTHOR'
+  }
+}
+
 export const findByISBN = () => {
   return {
     type: 'FIND_BY_ISBN'
