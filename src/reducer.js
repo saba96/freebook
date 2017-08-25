@@ -198,6 +198,7 @@ const findByLocation = (state, action) => {
     let dX = state.locSearchLatFieldText - record.latitude;
     let dY = state.locationSearchLongitudeFieldText - record.longitude;
     let distance = Math.sqrt(dX*dX + dY*dY);
+    distance *= KILOMETERS_PER_DEGREE; // convert to km
     return distance <= state.searchRadius;
   });
   let newState = Object.assign({}, state, { foundBooks });
