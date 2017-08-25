@@ -38,6 +38,7 @@ class Finder extends Component {
             <div>latitude: { item.latitude }</div>
             <div>longitude: { item.longitude }</div>
             <div>category: { item.category }</div>
+            { item.distance !== undefined ? <div>distance: { item.distance }km</div> : undefined }
           </CardBlock>
         </Card>
       )

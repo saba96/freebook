@@ -194,13 +194,18 @@ const findByTitle = (state, action) => {
 
 const findByLocation = (state, action) => {
   const KILOMETERS_PER_DEGREE = 111;
+  const center = {
+    latitude: state.locSearchLatFieldText,
+    longitude: state.locationSearchLongitudeFieldText
+  }
   let foundBooks = _.filter(state.records, (record) => {
-    let dX = state.locSearchLatFieldText - record.latitude;
-    let dY = state.locationSearchLongitudeFieldText - record.longitude;
+    let dX = center.latitude - record.latitude;
+    let dY = center.longitude - record.longitude;
     let distance = Math.sqrt(dX*dX + dY*dY);
     distance *= KILOMETERS_PER_DEGREE; // convert to km
     return distance <= state.searchRadius;
   });
+  foundBooks = sortByDistance(center, foundBooks);
   let newState = Object.assign({}, state, { foundBooks });
   return newState
 }
@@ -223,6 +228,17 @@ const addNewBook = (state, action) => {
     longitude: Number.parseFloat(state.adderLngFieldText)
   })
   return newState;
+}
+
+const sortByDistance = (center, records) => {
+  const KILOMETERS_PER_DEGREE = 111;
+  return _.sortBy(records, [ (record) => {
+    let dX = center.latitude - record.latitude;
+    let dY = center.longitude - record.longitude;
+    let distance = Math.sqrt(dX*dX + dY*dY);
+    record['distance'] = (distance * KILOMETERS_PER_DEGREE).toFixed(1);
+    return distance;
+  } ]);
 }
 
 export default reducer;
