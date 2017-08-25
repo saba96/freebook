@@ -11,7 +11,6 @@ import {
 } from '../actions/Finder';
 
 const mapStateToProps = (state) => {
-  console.log('LAT: ' + state.locSearchLatFieldText);
   return {
     findFieldText: state.findFieldText,
     foundBooks: state.foundBooks,
