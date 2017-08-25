@@ -93,7 +93,12 @@ const initialState = {
   records: records,
   foundBooks: null,
   bookInfo: null,
+  finderView: 'isbn',
   findFieldText: '',
+  searchRadius: 100, // Radius is in Km
+  locSearchLatFieldText: undefined,
+  locationSearchLongitudeFieldText: undefined,
+  searchCenter: null,
   userLocation: {
     lat: 0.0,
     lng: 0.0
@@ -118,7 +123,13 @@ const reducer = (state = initialState, action) => {
     case 'SET_FIND_FIELD_TEXT':
       return Object.assign({}, state, { findFieldText: action.text });
     case 'SET_USER_LOCATION':
-      return Object.assign({}, state, { userLocation: action.location });
+      let newState = Object.assign({}, state, {
+        userLocation: action.location,
+        locSearchLatFieldText: state.locSearchLatFieldText === undefined ? action.location.lat : state.locSearchLatFieldText,
+        locationSearchLongitudeFieldText: state.locationSearchLongitudeFieldText === undefined ? action.location.lng : state.locationSearchLongitudeFieldText
+      });
+      console.log(newState);
+      return newState;
     case 'SET_ADDER_TITLE_FIELD_TEXT':
       return Object.assign({}, state, { adderTitleFieldText: action.text });
     case 'SET_ADDER_ISBN_FIELD_TEXT':
@@ -129,6 +140,10 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, { adderLatFieldText: action.text });
     case 'SET_ADDER_LNG_FIELD_TEXT':
       return Object.assign({}, state, { adderLngFieldText: action.text });
+    case 'SET_LOCATION_SEARCH_LATITUDE_FIELD_TEXT':
+      return Object.assign({}, state, { locSearchLatFieldText: action.text });
+    case 'SET_LOCATION_SEARCH_LONGITUDE_FIELD_TEXT':
+      return Object.assign({}, state, { locationSearchLongitudeFieldText: action.text });
     case 'ON_ABOUT_US':
       return Object.assign({}, state, { view : 'aboutUs' });
     default:

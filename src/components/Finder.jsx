@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import classnames from 'classnames';
-import { Navbar, Nav, NavItem, NavLink, InputGroup, InputGroupAddon, Input, Button, CardDeck, Card, CardBlock, CardTitle } from 'reactstrap';
+import { Label, TabContent, TabPane, Navbar, Nav, NavItem, NavLink, InputGroup, InputGroupAddon, Input, Button, CardDeck, Card, CardBlock, CardTitle } from 'reactstrap';
 
 class Finder extends Component {
   constructor(props) {
@@ -67,18 +67,54 @@ class Finder extends Component {
             </NavItem>
           </Nav>
         </Navbar>
-        <InputGroup className="ISBN">
-          <InputGroupAddon>ISBN</InputGroupAddon>
-          <Input
-            placeholder="978-0-123456-47-2"
-            onInput={ this.props.onTextBoxChange }
-          />
-          <Button
-            color="primary"
-            onClick={ this.props.onSearchButtonClick }
-          >search</Button>{' '}
-        </InputGroup>
-
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="1">
+            <InputGroup className="ISBN">
+              <InputGroupAddon>ISBN</InputGroupAddon>
+              <Input
+                placeholder="978-0-123456-47-2"
+                onInput={ this.props.onTextBoxChange }
+              />
+              <Button
+                color="primary"
+                onClick={ this.props.onSearchButtonClick }
+              >search</Button>{' '}
+            </InputGroup>
+          </TabPane>
+          <TabPane tabId="2">
+            <Label>Center</Label>
+            <InputGroup className="Center">
+              <InputGroup>
+                <InputGroupAddon>Latitude</InputGroupAddon>
+                <Input
+                  placeholder="0.0"
+                  value={ this.props.latitudeFieldText }
+                  onInput={ this.props.onLatTextBoxChange }
+                />
+              </InputGroup>
+              <InputGroup>
+                <InputGroupAddon>Longitude</InputGroupAddon>
+                <Input
+                  placeholder="0.0"
+                  value={ this.props.longitudeFieldText }
+                  onInput={ this.props.onLongitudeTextBoxChange }
+                />
+              </InputGroup>
+              <InputGroup>
+                <InputGroupAddon>Radius</InputGroupAddon>
+                <Input
+                  placeholder="100"
+                  value={ this.props.radiusFieldText }
+                  onInput={ this.props.onRadiusTextBoxChange }
+                />
+              </InputGroup>
+              <Button
+                color="primary"
+                onClick={ this.props.onSearchButtonClick }
+              >search</Button>{' '}
+            </InputGroup>
+          </TabPane>
+        </TabContent>
         <div className="Results">
           <CardDeck>
             { this.generateResults() }
