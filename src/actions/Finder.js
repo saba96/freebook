@@ -44,6 +44,13 @@ export const setTitleFieldText = (text) => {
   }
 }
 
+export const setAuthorFieldText = (text) => {
+  return {
+    type: 'SET_FINDER_AUTHOR_FIELD_TEXT',
+    text
+  }
+}
+
 export const setRadiusFieldText = (text) => {
   return {
     type: 'SET_RADIUS_FIELD_TEXT',

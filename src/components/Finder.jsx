@@ -146,17 +146,17 @@ class Finder extends Component {
             </InputGroup>
           </TabPane>
           <TabPane tabId="4">
-            <InputGroup className="Title">
+            <InputGroup className="Author">
               <InputGroup>
-                <InputGroupAddon>Title</InputGroupAddon>
+                <InputGroupAddon>Author</InputGroupAddon>
                 <Input
-                  placeholder="Ender's Game"
-                  onInput={ this.props.onTitleTextBoxChange }
+                  placeholder="Orson Scott Card"
+                  onInput={ this.props.onAuthorTextBoxChange }
                 />
               </InputGroup>
               <Button
                 color="primary"
-                onClick={ this.props.onTitleSearchButtonClick }
+                onClick={ this.props.onAuthorSearchButtonClick }
               >search</Button>{' '}
             </InputGroup>
           </TabPane>

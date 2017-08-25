@@ -6,6 +6,7 @@ import {
   setFindFieldText,
   setRadiusFieldText,
   setTitleFieldText,
+  setAuthorFieldText,
   onSearchButtonClick, // can be deleted?
   findByISBN,
   findByLocation,
@@ -39,6 +40,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onTitleTextBoxChange: (event) => {
       dispatch(setTitleFieldText(event.target.value));
+    },
+    onAuthorTextBoxChange: (event) => {
+      dispatch(setAuthorFieldText(event.target.value));
     },
     onLocationSearchButtonClick: () => dispatch(findByLocation()),
     onTitleSearchButtonClick: () => dispatch(findByTitle())

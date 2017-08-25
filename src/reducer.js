@@ -119,7 +119,8 @@ const initialState = {
   adderGenreFieldText: '',
   adderLatFieldText: '',
   adderLngFieldText: '',
-  searchTitle: ''
+  searchTitle: '',
+  searchAuthor: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -163,6 +164,8 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, { searchRadius: action.text });
     case 'SET_FINDER_TITLE_FIELD_TEXT':
       return Object.assign({}, state, { searchTitle: action.text });
+    case 'SET_FINDER_AUTHOR_FIELD_TEXT':
+      return Object.assign({}, state, { searchAuthor: action.text });
     case 'ON_ABOUT_US':
       return Object.assign({}, state, { view : 'aboutUs' });
     default:
