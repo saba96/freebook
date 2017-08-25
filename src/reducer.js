@@ -108,7 +108,7 @@ const initialState = {
   finderView: 'isbn',
   findFieldText: '',
   searchRadius: 100, // Radius is in Km
-  locSearchLatFieldText: undefined,
+  locationSearchLatitudeFieldText: undefined,
   locationSearchLongitudeFieldText: undefined,
   userLocation: {
     lat: 0.0,
@@ -141,13 +141,13 @@ const reducer = (state = initialState, action) => {
       return addNewBook(state, action);
     case 'SET_FIND_FIELD_TEXT':
       return Object.assign({}, state, { findFieldText: action.text });
-    case 'SET_USER_LOCATION':
+    case 'SET_USER_LOCATION': {
       let newState = Object.assign({}, state, {
         userLocation: action.location,
-        locSearchLatFieldText: state.locSearchLatFieldText === undefined ? action.location.lat : state.locSearchLatFieldText,
+        locationSearchLatitudeFieldText: state.locationSearchLatitudeFieldText === undefined ? action.location.lat : state.locationSearchLatitudeFieldText,
         locationSearchLongitudeFieldText: state.locationSearchLongitudeFieldText === undefined ? action.location.lng : state.locationSearchLongitudeFieldText
       });
-      return newState;
+      return newState; }
     case 'SET_ADDER_TITLE_FIELD_TEXT':
       return Object.assign({}, state, { adderTitleFieldText: action.text });
     case 'SET_ADDER_ISBN_FIELD_TEXT':
@@ -158,8 +158,10 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, { adderLatFieldText: action.text });
     case 'SET_ADDER_LNG_FIELD_TEXT':
       return Object.assign({}, state, { adderLngFieldText: action.text });
-    case 'SET_LOCATION_SEARCH_LATITUDE_FIELD_TEXT':
-      return Object.assign({}, state, { locSearchLatFieldText: action.text });
+    case 'SET_LOCATION_SEARCH_LATITUDE_FIELD_TEXT': {
+      let newState = Object.assign({}, state);
+      newState.locationSearchLatitudeFieldText = action.text;
+      return newState; }
     case 'SET_LOCATION_SEARCH_LONGITUDE_FIELD_TEXT':
       return Object.assign({}, state, { locationSearchLongitudeFieldText: action.text });
     case 'SET_RADIUS_FIELD_TEXT':
@@ -181,7 +183,7 @@ const findByAuthor = (state, action) => {
     return record.author === state.searchAuthor;
   });
   const center = {
-    latitude: state.locSearchLatFieldText,
+    latitude: state.locationSearchLatitudeFieldText,
     longitude: state.locationSearchLongitudeFieldText
   }
   foundBooks = sortByDistance(center, foundBooks);
@@ -194,7 +196,7 @@ const findByTitle = (state, action) => {
     return record.title === state.searchTitle;
   });
   const center = {
-    latitude: state.locSearchLatFieldText,
+    latitude: state.locationSearchLatitudeFieldText,
     longitude: state.locationSearchLongitudeFieldText
   }
   foundBooks = sortByDistance(center, foundBooks);
@@ -205,7 +207,7 @@ const findByTitle = (state, action) => {
 const findByLocation = (state, action) => {
   const KILOMETERS_PER_DEGREE = 111;
   const center = {
-    latitude: state.locSearchLatFieldText,
+    latitude: state.locationSearchLatitudeFieldText,
     longitude: state.locationSearchLongitudeFieldText
   }
   let foundBooks = _.filter(state.records, (record) => {
@@ -225,7 +227,7 @@ const findByISBN = (state, action) => {
     return record.ISBN.toString() === state.findFieldText;
   });
   const center = {
-    latitude: state.locSearchLatFieldText,
+    latitude: state.locationSearchLatitudeFieldText,
     longitude: state.locationSearchLongitudeFieldText
   }
   foundBooks = sortByDistance(center, foundBooks);

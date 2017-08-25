@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Finder from '../components/Finder';
 import {
-  setLocSearchLatFieldText,
+  setLocationSearchLatitudeFieldText,
   setLocationSearchLongitudeFieldText,
   setFindFieldText,
   setRadiusFieldText,
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
     findFieldText: state.findFieldText,
     foundBooks: state.foundBooks,
     searchRadius: state.searchRadius,
-    latitudeFieldText: state.locSearchLatFieldText,
+    latitudeFieldText: state.locationSearchLatitudeFieldText,
     longitudeFieldText: state.locationSearchLongitudeFieldText
   };
 };
@@ -30,8 +30,8 @@ const mapDispatchToProps = (dispatch) => {
     onTextBoxChange: (event) => {
       dispatch(setFindFieldText(event.target.value));
     },
-    onLatTextBoxChange: (event) => {
-      dispatch(setLocSearchLatFieldText(event.target.value));
+    onLatitudeTextBoxChange: (event) => {
+      dispatch(setLocationSearchLatitudeFieldText(event.target.value));
     },
     onLongitudeTextBoxChange: (event) => {
       dispatch(setLocationSearchLongitudeFieldText(event.target.value));

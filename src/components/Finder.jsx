@@ -107,7 +107,7 @@ class Finder extends Component {
                 <Input
                   placeholder="0.0"
                   value={ this.props.latitudeFieldText }
-                  onInput={ this.props.onLatTextBoxChange }
+                  onInput={ this.props.onLatitudeTextBoxChange }
                 />
               </InputGroup>
               <InputGroup>

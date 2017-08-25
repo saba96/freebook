@@ -10,7 +10,7 @@ export const findByLocation = () => {
   }
 }
 
-export const setLocSearchLatFieldText = (text) => {
+export const setLocationSearchLatitudeFieldText = (text) => {
   return {
     type: 'SET_LOCATION_SEARCH_LATITUDE_FIELD_TEXT',
     text
