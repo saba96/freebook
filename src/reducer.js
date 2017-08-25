@@ -180,6 +180,11 @@ const findByAuthor = (state, action) => {
   let foundBooks = _.filter(state.records, (record) => {
     return record.author === state.searchAuthor;
   });
+  const center = {
+    latitude: state.locSearchLatFieldText,
+    longitude: state.locationSearchLongitudeFieldText
+  }
+  foundBooks = sortByDistance(center, foundBooks);
   let newState = Object.assign({}, state, { foundBooks });
   return newState;
 }
@@ -188,6 +193,11 @@ const findByTitle = (state, action) => {
   let foundBooks = _.filter(state.records, (record) => {
     return record.name === state.searchTitle;
   });
+  const center = {
+    latitude: state.locSearchLatFieldText,
+    longitude: state.locationSearchLongitudeFieldText
+  }
+  foundBooks = sortByDistance(center, foundBooks);
   let newState = Object.assign({}, state, { foundBooks });
   return newState;
 }
@@ -214,6 +224,11 @@ const findByISBN = (state, action) => {
   let foundBooks = _.filter(state.records, (record) => {
     return record.ISBN.toString() === state.findFieldText;
   });
+  const center = {
+    latitude: state.locSearchLatFieldText,
+    longitude: state.locationSearchLongitudeFieldText
+  }
+  foundBooks = sortByDistance(center, foundBooks);
   let newState = Object.assign({}, state, { foundBooks });
   return newState;
 }
