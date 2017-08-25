@@ -5,9 +5,11 @@ import {
   setLocationSearchLongitudeFieldText,
   setFindFieldText,
   setRadiusFieldText,
-  onSearchButtonClick,
+  setTitleFieldText,
+  onSearchButtonClick, // can be deleted?
   findByISBN,
-  findByLocation
+  findByLocation,
+  findByTitle
 } from '../actions/Finder';
 
 const mapStateToProps = (state) => {
@@ -35,7 +37,11 @@ const mapDispatchToProps = (dispatch) => {
     onRadiusTextBoxChange: (event) => {
       dispatch(setRadiusFieldText(event.target.value));
     },
-    onLocationSearchButtonClick: () => dispatch(findByLocation())
+    onTitleTextBoxChange: (event) => {
+      dispatch(setTitleFieldText(event.target.value));
+    },
+    onLocationSearchButtonClick: () => dispatch(findByLocation()),
+    onTitleSearchButtonClick: () => dispatch(findByTitle())
   };
 };
 

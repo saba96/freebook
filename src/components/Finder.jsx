@@ -65,6 +65,14 @@ class Finder extends Component {
                 find by location
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink
+                className={classnames({ active: this.state.activeTab === '3' })}
+                onClick={() => { this.toggle('3'); }}
+              >
+                find by title
+              </NavLink>
+            </NavItem>
           </Nav>
         </Navbar>
         <TabContent activeTab={this.state.activeTab}>
@@ -111,6 +119,21 @@ class Finder extends Component {
               <Button
                 color="primary"
                 onClick={ this.props.onLocationSearchButtonClick }
+              >search</Button>{' '}
+            </InputGroup>
+          </TabPane>
+          <TabPane tabId="3">
+            <InputGroup className="Title">
+              <InputGroup>
+                <InputGroupAddon>Title</InputGroupAddon>
+                <Input
+                  placeholder="Ender's Game"
+                  onInput={ this.props.onTitleTextBoxChange }
+                />
+              </InputGroup>
+              <Button
+                color="primary"
+                onClick={ this.props.onTitleSearchButtonClick }
               >search</Button>{' '}
             </InputGroup>
           </TabPane>

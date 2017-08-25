@@ -106,7 +106,8 @@ const initialState = {
   adderISBNFieldText: '',
   adderGenreFieldText: '',
   adderLatFieldText: '',
-  adderLngFieldText: ''
+  adderLngFieldText: '',
+  searchTitle: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -119,6 +120,8 @@ const reducer = (state = initialState, action) => {
       return findByISBN(state, action);
     case 'FIND_BY_LOCATION':
       return findByLocation(state, action);
+    case 'FIND_BY_TITLE':
+      return findByTitle(state, action);
     case 'ADD_NEW_BOOK':
       return addNewBook(state, action);
     case 'SET_FIND_FIELD_TEXT':
@@ -146,6 +149,8 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, { locationSearchLongitudeFieldText: action.text });
     case 'SET_RADIUS_FIELD_TEXT':
       return Object.assign({}, state, { searchRadius: action.text });
+    case 'SET_FINDER_TITLE_FIELD_TEXT':
+      return Object.assign({}, state, { searchTitle: action.text });
     case 'ON_ABOUT_US':
       return Object.assign({}, state, { view : 'aboutUs' });
     default:
@@ -153,6 +158,14 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const findByTitle = (state, action) => {
+  let foundBooks = _.filter(state.records, (record) => {
+    return record.name === state.searchTitle;
+  });
+  let newState = Object.assign({}, state, { foundBooks });
+  return newState;
+}
 
 const findByLocation = (state, action) => {
   const KILOMETERS_PER_DEGREE = 111;

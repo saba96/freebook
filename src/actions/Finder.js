@@ -1,3 +1,9 @@
+export const findByTitle = () => {
+  return {
+    type: 'FIND_BY_TITLE'
+  }
+}
+
 export const findByLocation = () => {
   return {
     type: 'FIND_BY_LOCATION'
@@ -27,6 +33,13 @@ export const findByISBN = () => {
 export const setFindFieldText = (text) => {
   return {
     type: 'SET_FIND_FIELD_TEXT',
+    text
+  }
+}
+
+export const setTitleFieldText = (text) => {
+  return {
+    type: 'SET_FINDER_TITLE_FIELD_TEXT',
     text
   }
 }
