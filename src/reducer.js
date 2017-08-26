@@ -4,96 +4,120 @@ const records = [
   {
     ISBN: 123,
     title: 'Jimmy Goes to the Store',
-    latitude: 35.691566,
-    longitude: 139.687922,
+    location: {
+      latitude: 35.691566,
+      longitude: 139.687922,
+    },
     category: 'Drama',
     author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     title: 'Jimmy Goes to the Store',
-    latitude: 35.691633,
-    longitude: 138.687922,
+    location: {
+      latitude: 35.691633,
+      longitude: 138.687922,
+    },
     category: 'Drama',
     author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     title: 'Jimmy Goes to the Store',
-    latitude: 36.691566,
-    longitude: 138.687922,
+    location: {
+      latitude: 36.691566,
+      longitude: 138.687922,
+    },
     category: 'Drama',
     author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     title: 'Jimmy Goes to the Store',
-    latitude: 41.691566,
-    longitude: 141.687922,
+    location: {
+      latitude: 41.691566,
+      longitude: 141.687922,
+    },
     category: 'Drama',
     author: 'Jimmy Chen'
   },
   {
     ISBN: 123,
     title: 'Jimmy Goes to the Store',
-    latitude: 9.691566,
-    longitude: 152.687922,
+    location: {
+      latitude: 9.691566,
+      longitude: 152.687922,
+    },
     category: 'Drama',
     author: 'Jimmy Chen'
   },
   {
     ISBN: 1,
     title: 'The Goldfinch',
-    latitude: 35.691566,
-    longitude: 139.687922,
+    location: {
+      latitude: 35.691566,
+      longitude: 139.687922,
+    },
     category: 'Novel',
     author: 'Donna Tartt'
   },
   {
     ISBN: 2,
     title: 'Hamilton: The Revolution',
-    latitude: 35.688795,
-    longitude: 139.682686,
+    location: {
+      latitude: 35.688795,
+      longitude: 139.682686,
+    },
     category: 'Art',
     author: 'Jeremy McCarter'
   },
   {
     ISBN: 3,
     title: 'Hue 1968',
-    latitude: 35.701126,
-    longitude: 139.709616,
+    location: {
+      latitude: 35.701126,
+      longitude: 139.709616,
+    },
     category:'History',
     author: 'Mark Bowden'
   },
   {
     ISBN: 4,
     title: 'P.S. from Paris',
-    latitude: 35.697711,
-    longitude: 139.661980,
+    location: {
+      latitude: 35.697711,
+      longitude: 139.661980,
+    },
     category: 'Romance',
     author: 'Marc Levy'
   },
   {
     ISBN: 5,
     title: 'Deep Learning',
-    latitude: 35.736829,
-    longitude: 139.196777,
+    location: {
+      latitude: 35.736829,
+      longitude: 139.196777,
+    },
     category: 'Technology',
     author: 'Ian Goodfellow'
   },
   {
     ISBN: 6,
     title: 'Orthopedic Physical Assessment',
-    latitude: 35.531458,
-    longitude: 138.911133,
+    location: {
+      latitude: 35.531458,
+      longitude: 138.911133,
+    },
     category: 'Medicine',
     author: 'David J Magee'
   },
   {
     ISBN: 1,
     title: 'The Goldfinch',
-    latitude: 36.691566,
-    longitude: 139.887922,
+    location: {
+      latitude: 36.691566,
+      longitude: 139.887922,
+    },
     category: 'Novel',
     author: 'Donna Tartt'
   },
@@ -205,9 +229,7 @@ const findByTitle = (state, action) => {
 const findByLocation = (state, action) => {
   const KILOMETERS_PER_DEGREE = 111;
   let foundBooks = _.filter(state.records, (record) => {
-    let dX = state.searchCenter.lat - record.latitude;
-    let dY = state.searchCenter.lng - record.longitude;
-    let distance = Math.sqrt(dX*dX + dY*dY);
+    let distance = getDistance2D(state.searchCenter, record.location)
     distance *= KILOMETERS_PER_DEGREE; // convert to km
     return distance <= state.searchRadius;
   });
@@ -231,8 +253,10 @@ const addNewBook = (state, action) => {
     ISBN: state.adderISBNFieldText,
     title: state.adderTitleFieldText,
     category: state.adderGenreFieldText,
-    latitude: Number.parseFloat(state.adderLatFieldText),
-    longitude: Number.parseFloat(state.adderLngFieldText)
+    location: {
+      latitude: Number.parseFloat(state.adderLatFieldText),
+      longitude: Number.parseFloat(state.adderLngFieldText)
+    }
   })
   return newState;
 }
@@ -240,12 +264,19 @@ const addNewBook = (state, action) => {
 const sortByDistance = (center, records) => {
   const KILOMETERS_PER_DEGREE = 111;
   return _.sortBy(records, [ (record) => {
-    let dX = center.lat - record.latitude;
-    let dY = center.lng - record.longitude;
-    let distance = Math.sqrt(dX*dX + dY*dY);
+    const distance = getDistance2D(center, record.location);
     record['distance'] = (distance * KILOMETERS_PER_DEGREE).toFixed(1);
     return distance;
   } ]);
+}
+
+const getDistance2D = (a, b) => {
+  if(a === undefined || b === undefined)
+    return undefined;
+  let dX = a[Object.keys(a)[0]] - b[Object.keys(b)[0]];
+  let dY = a[Object.keys(a)[1]] - b[Object.keys(b)[1]];
+  let distance = Math.sqrt(dX*dX + dY*dY);
+  return distance;
 }
 
 export default reducer;

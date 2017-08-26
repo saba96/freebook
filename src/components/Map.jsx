@@ -31,8 +31,8 @@ const MyMap = withGoogleMap(props => {
       { props.markers.map((marker, idx) => (
         <Marker key = { idx }
           position = { {
-            lat: marker.latitude,
-            lng: marker.longitude
+            lat: marker.location.latitude,
+            lng: marker.location.longitude
           } }
         />
       )) }
