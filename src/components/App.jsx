@@ -4,8 +4,6 @@ import Map from '../containers/Map';
 import Navigator from '../containers/Navigator';
 import Control from '../containers/Control';
 
-let props = { ISBN: null };
-
 class App extends Component {
   render() {
     return (
