@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Circle, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import PropTypes from 'prop-types';
-
+import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 const MyMap = withGoogleMap(props => {
   let currentLocation = null;

@@ -7,7 +7,6 @@ import {
   setRadiusFieldText,
   setTitleFieldText,
   setAuthorFieldText,
-  onSearchButtonClick, // can be deleted?
   findByISBN,
   findByLocation,
   findByTitle,

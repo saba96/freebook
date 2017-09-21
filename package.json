@@ -18,22 +18,27 @@
     "react-addons-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-google-maps": "^7.2.0",
+    "react-redux": "^5.0.6",
     "react-scripts": "1.0.11",
     "react-test-renderer": "^15.6.1",
     "reactstrap": "^4.8.0",
+    "redux": "^3.7.2",
     "serve-favicon": "~2.4.2",
     "sinon": "^3.2.1"
   },
   "scripts": {
-    "server": "node ./server/bin/www",
-    "start": "react-scripts start",
+    "start": "yarn build && node ./server/bin/www",
+    "back": "nodemon ./server/bin/www",
+    "front": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3001",
   "devDependencies": {
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "nodemon": "^1.12.1"
+  },
+  "engines": {
+    "node": ">=8.2.1"
   }
 }
