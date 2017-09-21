@@ -27,7 +27,7 @@
     "sinon": "^3.2.1"
   },
   "scripts": {
-    "start": "yarn build && node ./server/bin/www",
+    "start": "yarn build & node ./server/bin/www",
     "back": "nodemon ./server/bin/www",
     "front": "react-scripts start",
     "build": "react-scripts build",
